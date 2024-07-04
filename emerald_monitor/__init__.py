@@ -70,14 +70,26 @@ class ResourceMonitor(Thread):
         # time_key = 'epoch_time'
         monitor_info = self.get_logs()
 
-        fig, axs = plt.subplots(nrows=2, ncols=1, sharex=True, figsize=figsize)
+        fig, axs = plt.subplots(nrows=4, ncols=1, sharex=True, figsize=figsize)
         axs[0].plot(monitor_info[time_key], monitor_info.memory_rss, label="memory_rss", c='blue')
         axs[0].set_ylabel(f"memory usage (Gb)")
-        axs[1].plot(monitor_info[time_key], monitor_info.cpu_times_system, label='system', c="green")
-        axs[1].plot(monitor_info[time_key], monitor_info.cpu_times_user, label='user', c="orange")
-        axs[1].plot(monitor_info[time_key], monitor_info.cpu_times_total, label='total', c="red")
-        axs[1].legend()
-        axs[1].set_ylabel(f"cpu_times")
-        axs[1].set_xlabel(f"{time_key} (s)")
+
+        axs[1].plot(monitor_info[time_key], monitor_info.memory_rss.diff(), label="memory_change", c='blue')
+        axs[1].set_ylabel(f"memory usage change (Gb)")
+
+        axs[2].plot(monitor_info[time_key], monitor_info.cpu_times_total, label='total', c="red")
+        axs[2].plot(monitor_info[time_key], monitor_info.cpu_times_system, label='system', c="green")
+        axs[2].plot(monitor_info[time_key], monitor_info.cpu_times_user, label='user', c="orange")
+        axs[2].legend()
+        axs[2].set_ylabel(f"cpu times")
+
+        axs[3].plot(monitor_info[time_key], monitor_info.cpu_times_total.diff(), label="total_change", c='red')
+        axs[3].plot(monitor_info[time_key], monitor_info.cpu_times_system.diff(), label="system_change", c='green')
+        axs[3].plot(monitor_info[time_key], monitor_info.cpu_times_user.diff(), label="user_change", c='orange')
+        axs[3].legend()
+        axs[3].set_ylabel(f"cpu times change")
+
+        axs[3].set_xlabel(f"{time_key} (s)")
+
         plt.tight_layout()
         plt.show()
