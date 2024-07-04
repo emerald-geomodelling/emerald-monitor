@@ -14,7 +14,7 @@ setup(name='emerald-monitor',
                         "pandas",
                         "matplotlib",
                         # "time",
-                        # "threading"
+                        # "threading",
                         ],
       long_description="Monitoring utility",
       include_package_data=True,
