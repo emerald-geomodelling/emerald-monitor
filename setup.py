@@ -4,7 +4,7 @@ import setuptools
 import os
 
 setuptools.setup(
-    name='emerald-beryl-pipeline',
+    name='emerald-monitor',
     version='0.0.0',
     description='',
     long_description="",
@@ -15,9 +15,9 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     install_requires=[
         "psutil",
-        "time",
-        "numpy",
+        "numpy==1.26.4",
         "pandas",
         "matplotlib",
-        "threading"
+        # "time",
+        # #"threading"
     ])
