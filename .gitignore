@@ -1,3 +1,4 @@
 .gitignore
 *.idea/
 *.egg-info/
+*.ipynb_checkpoints/
