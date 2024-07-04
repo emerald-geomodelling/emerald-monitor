@@ -1,23 +1,22 @@
 #!/usr/bin/env python
 
-import setuptools
-import os
+import os, sys
+from setuptools import setup, find_packages
 
-setuptools.setup(
-    name='emerald-monitor',
-    version='0.0.0',
-    description='',
-    long_description="",
-    long_description_content_type="text/markdown",
-    author='Benjamin Bloss',
-    author_email='bb@emrld.no',
-    url='https://github.com/emerald-geomodelling/emerald-monitor',
-    packages=setuptools.find_packages(),
-    install_requires=[
-        "psutil",
-        "numpy==1.26.4",
-        "pandas",
-        "matplotlib",
-        # "time",
-        # #"threading"
-    ])
+setup(name='emerald-monitor',
+      version='0.0.0',
+      url='https://github.com/emerald-geomodelling/emerald-monitor',
+      author='Benjamin Bloss',
+      author_email='bb@emrld.no',
+      description='Monitoring utility',
+      install_requires=["psutil",
+                        "numpy==1.26.4",
+                        "pandas",
+                        "matplotlib",
+                        # "time",
+                        # "threading"
+                        ],
+      long_description="Monitoring utility",
+      include_package_data=True,
+      packages=find_packages(),
+      )
