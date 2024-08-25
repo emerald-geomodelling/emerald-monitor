@@ -38,7 +38,7 @@ class ResourceMonitor(Thread):
 
             except (psutil.NoSuchProcess, psutil.AccessDenied):
                 # Handle potential issues with the kernel process
-                print(f"Error monitoring process with PID {self.kernel_pid}. Stopping logging.")
+                print(f"Error monitoring process with PID {self.kernel_process.pid}. Stopping logging.")
                 break
             time.sleep(self.logging_interval)  # Use the set logging interval # s
 
