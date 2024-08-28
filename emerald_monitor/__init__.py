@@ -93,3 +93,4 @@ class ResourceMonitor(Thread):
 
         plt.tight_layout()
         plt.show()
+        
