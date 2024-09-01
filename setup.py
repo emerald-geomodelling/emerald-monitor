@@ -3,8 +3,8 @@
 import os, sys
 from setuptools import setup, find_packages
 
-setup(name='emerald-monitor',
-      version='0.0.1',
+setup(name='emerald_monitor',
+      version='0.0.2',
       url='https://github.com/emerald-geomodelling/emerald-monitor',
       author='Benjamin Bloss',
       author_email='bb@emrld.no',
