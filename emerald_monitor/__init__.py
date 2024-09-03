@@ -5,6 +5,23 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from threading import Thread
 
+import contextlib
+
+@contextlib.contextmanager
+def resource_monitor(*arg, **kw):
+    monitor = ResourceMonitor(*arg, **kw)
+    monitor.start_logging()
+    try:
+        yield monitor
+    finally:
+        monitor.stop_logging()
+#
+# with resource_monitor() as monitor:
+#   do_inversion()
+
+# logs = monitor.get_logs()
+
+
 class ResourceMonitor(Thread):
 
     def __init__(self, logging_interval=1):
