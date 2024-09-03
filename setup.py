@@ -4,7 +4,7 @@ import os, sys
 from setuptools import setup, find_packages
 
 setup(name='emerald_monitor',
-      version='0.0.2',
+      version='0.0.21',
       url='https://github.com/emerald-geomodelling/emerald-monitor',
       author='Benjamin Bloss',
       author_email='bb@emrld.no',
